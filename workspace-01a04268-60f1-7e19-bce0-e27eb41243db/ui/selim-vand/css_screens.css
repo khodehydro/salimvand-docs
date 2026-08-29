@@ -1,0 +1,88 @@
+/* ============ 4. APP SHELL (mockup chrome) ============ */
+.topbar{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--surface) 88%,transparent);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.topbar-in{max-width:1560px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brandmark{display:flex;align-items:center;gap:10px}
+.logo{width:38px;height:38px;border-radius:11px;background:var(--brand-800);color:#fff;display:grid;place-items:center;
+  font-weight:700;font-size:15px;letter-spacing:-.02em;position:relative;overflow:hidden}
+.logo::after{content:'';position:absolute;inset-inline-start:0;top:0;bottom:0;width:38%;background:var(--brand-500);opacity:.55}
+.logo span{position:relative}
+.brandmark .t1{font-size:14px;font-weight:700;line-height:1.3}
+.brandmark .t2{font-size:10.5px;color:var(--text-3);line-height:1.3}
+.tabsbar{display:flex;gap:4px;background:var(--surface-3);padding:4px;border-radius:12px}
+.tabsbar button{height:34px;padding:0 14px;border-radius:9px;font-size:13px;font-weight:600;color:var(--text-2);
+  display:inline-flex;align-items:center;gap:7px}
+.tabsbar button svg{width:16px;height:16px}
+.tabsbar button.on{background:var(--surface);color:var(--primary-2);box-shadow:var(--shadow-1)}
+[data-theme="dark"] .tabsbar button.on{color:var(--text)}
+.pals{display:flex;gap:6px;align-items:center}
+.pal{width:24px;height:24px;border-radius:8px;border:2px solid transparent;cursor:pointer;transition:.15s}
+.pal.on{border-color:var(--text);transform:scale(1.08)}
+.pal-p1{background:#0d2b4b}.pal-p2{background:#182a45}.pal-p3{background:#07343f}.pal-p4{background:#141f4d}
+
+.shell{max-width:1560px;margin:0 auto;padding:0 20px 90px}
+.sec{padding-top:38px}
+.sec-h{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.sec-h .eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--brand-500);text-transform:uppercase}
+.sec-h h2{font-size:22px}
+.sec-h p{color:var(--text-2);font-size:13px;max-width:640px}
+.sec-nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 6px;position:sticky;top:64px;z-index:50;
+  background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);padding:10px 0;border-bottom:1px solid var(--border)}
+.sec-nav a{height:33px;padding:0 13px;border-radius:9px;background:var(--surface);border:1px solid var(--border);
+  font-size:12.5px;font-weight:600;color:var(--text-2);display:inline-flex;align-items:center;gap:6px;transition:.15s}
+.sec-nav a:hover{border-color:var(--brand-400);color:var(--primary-2)}
+.sec-nav a .k{width:17px;height:17px;border-radius:5px;background:var(--surface-3);display:grid;place-items:center;font-size:10px}
+.stage{display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap}
+.note{flex:1;min-width:250px;max-width:330px}
+.note .card-b{font-size:12.5px;color:var(--text-2);line-height:2}
+.note h4{font-size:12px;letter-spacing:.04em;color:var(--text-3);margin-bottom:8px;text-transform:uppercase}
+.note ul{display:flex;flex-direction:column;gap:7px}
+.note li{display:flex;gap:8px;align-items:flex-start}
+.note li svg{width:15px;height:15px;color:var(--brand-500);margin-top:5px;flex:none}
+.note .k{color:var(--text);font-weight:600}
+
+/* device frames */
+.frame{background:var(--surface);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow-3);
+  overflow:hidden;flex:none}
+.frame-bar{height:34px;background:var(--surface-2);border-bottom:1px solid var(--border);display:flex;
+  align-items:center;gap:7px;padding:0 12px}
+.frame-bar i{width:9px;height:9px;border-radius:50%;background:var(--border-2)}
+.frame-bar .url{flex:1;height:21px;border-radius:7px;background:var(--surface);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:10.5px;color:var(--text-3);gap:5px;direction:ltr}
+.frame-bar .url svg{width:11px;height:11px;color:var(--ok)}
+.frame-body{background:var(--bg);overflow:hidden;position:relative}
+.w-desk{width:min(100%,1160px)}
+.w-admin{width:100%}
+.w-tab{width:860px}
+.w-phone{width:378px}
+.w-phone .frame-body{height:790px;overflow-y:auto}
+.phone-cap{width:100%;text-align:center;font-size:11.5px;color:var(--text-3);padding:9px 0 0}
+
+/* ============ 5. DESIGN SYSTEM VIEW ============ */
+.ds{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:9px}
+.sw-chip{border-radius:11px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:.15s;background:var(--surface)}
+.sw-chip:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+.sw-chip i{display:block;height:52px}
+.sw-chip div{padding:6px 8px;font-size:10.5px;line-height:1.5}
+.sw-chip b{display:block;font-size:11px}
+.sw-chip span{color:var(--text-3);font-family:ui-monospace,monospace;direction:ltr;display:block;font-size:10px}
+.type-row{display:flex;align-items:baseline;gap:14px;padding:9px 0;border-bottom:1px dashed var(--border)}
+.type-row .m{font-size:10.5px;color:var(--text-3);width:110px;flex:none;font-family:ui-monospace,monospace}
+.sp-row{display:flex;align-items:center;gap:12px;font-size:11.5px;color:var(--text-2)}
+.sp-row i{background:var(--brand-500);height:12px;border-radius:3px;display:block}
+.grid-demo{display:grid;gap:10px;grid-template-columns:repeat(4,1fr)}
+.grid-demo div{height:46px;border-radius:9px;background:var(--brand-100);border:1px dashed var(--brand-300);
+  display:grid;place-items:center;font-size:11px;color:var(--brand-700)}
+[data-theme="dark"] .grid-demo div{background:var(--surface-3);border-color:var(--border-2);color:var(--text-2)}
+.comp-stack{display:flex;flex-direction:column;gap:12px}
+.comp-line{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.toast-demo{background:var(--brand-900);color:#fff;border-radius:12px;padding:12px 14px;display:flex;gap:10px;
+  align-items:center;box-shadow:var(--shadow-2);font-size:12.5px}
+.toast-demo svg{width:18px;height:18px;color:var(--ok)}
+[data-theme="dark"] .toast-demo{background:var(--surface-3);color:var(--text);border:1px solid var(--border)}
+.empty{text-align:center;padding:26px 14px;color:var(--text-3);font-size:12.5px}
+.empty svg{width:34px;height:34px;opacity:.4;margin-bottom:6px}
+.sk{background:linear-gradient(90deg,var(--surface-3),var(--surface-2),var(--surface-3));background-size:200% 100%;
+  animation:sk 1.4s infinite;border-radius:7px}
+@keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
