@@ -55,6 +55,24 @@ npm i jsdom && node verify_labels.js
 (حاشیهٔ ۸ میلی‌متر، فاصلهٔ ۲ میلی‌متر) می‌چیند. اندازه‌ها با واحد `mm` تعریف شده‌اند،
 پس خروجی چاپ **دقیقاً در ابعاد واقعی** است — هنگام چاپ گزینهٔ مقیاس را روی ۱۰۰٪ بگذارید.
 
+## پیش‌نمایش تصویری (PNG · ۳۰۵ DPI)
+
+تصویرهای پوشهٔ `preview/` با `render_preview.py` رندر می‌شوند (Pillow + وزیرمتن + شکل‌دهی فارسی)
+و همان مقادیر میلی‌متری قالب HTML را بازتولید می‌کنند:
+
+| فایل | محتوا |
+|---|---|
+| `01-sizes.png` | هر سه اندازه، مقیاس ۱:۱ |
+| `02-styles.png` | سه سبک چاپ (برند / تک‌رنگ / ناوی) |
+| `03-barcodes.png` | مقایسهٔ EAN-13 و Code 128 |
+| `04-products.png` | چهار کالای واقعی از دادهٔ انبار |
+| `05-zoom.png` | نمای نزدیک ۳× برای بازبینی جزئیات |
+
+```bash
+pip install pillow arabic_reshaper python-bidi fonttools brotli
+python3 render_preview.py      # → preview/*.png
+```
+
 ## فایل‌ها
 
 ```
@@ -62,7 +80,9 @@ more features/
 ├── product-labels.html   ← خروجی نهایی (این را باز کنید)
 ├── label_template.html   ← قالب منبع (بدون فونت جاسازی‌شده)
 ├── build_labels.py       ← تزریق فونت و ساخت خروجی
+├── render_preview.py     ← رندر PNG برچسب‌ها با Pillow
 ├── verify_labels.js      ← تست‌های jsdom
+├── preview/              ← تصاویر پیش‌نمایش
 ├── index.html            ← ریدایرکت برای سرو استاتیک
 └── README.md
 ```
