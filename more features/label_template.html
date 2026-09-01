@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>برچسب محصول — فروشگاه سلیم‌وند</title>
+<style>
+/*__FONTS__*/
+
+/* ============ توکن‌های برند (هم‌راستا با css_base.css پروژه) ============ */
+:root{
+  --brand-950:#04121f; --brand-900:#071c30; --brand-850:#0a2440; --brand-800:#0d2b4b;
+  --brand-700:#124270; --brand-600:#175894; --brand-500:#1f6fbe; --brand-400:#3f8ede;
+  --brand-300:#7fb5ea; --brand-200:#bcd7f5; --brand-100:#e0ecfa; --brand-50:#f1f6fd;
+  --ok:#0f8f52; --ok-soft:#e3f5ea; --warn:#b9770b; --warn-soft:#fdf0d9;
+  --danger:#c8383c; --danger-soft:#fbe7e8;
+  --bg:#f3f6fa; --bg-2:#e9eef6;
+  --surface:#ffffff; --surface-2:#f7fafd; --surface-3:#eef3f9;
+  --border:#dce4ee; --border-2:#c8d4e3;
+  --text:#0b1c2f; --text-2:#4a5f79; --text-3:#8095ad;
+  --primary:#0d2b4b; --primary-2:#124270; --primary-hover:#0a2440; --primary-fg:#fff;
+  --shadow-1:0 1px 2px rgba(9,28,47,.07),0 1px 3px rgba(9,28,47,.05);
+  --shadow-2:0 6px 20px rgba(9,28,47,.09),0 2px 6px rgba(9,28,47,.05);
+}
+[data-theme="dark"]{
+  --bg:#050b14; --bg-2:#040912;
+  --surface:#0d1826; --surface-2:#111f31; --surface-3:#16283c;
+  --border:#1d3049; --border-2:#294061;
+  --text:#eaf1f9; --text-2:#9db1c8; --text-3:#6c8299;
+  --primary:#2f7fce; --primary-2:#3f8ede; --primary-hover:#4d99e0; --primary-fg:#04101c;
+  --ok:#3ecf8e; --ok-soft:#0d2f24; --warn:#f0b454; --warn-soft:#332509;
+  --shadow-1:0 1px 2px rgba(0,0,0,.5); --shadow-2:0 8px 26px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--text); direction:rtl;
+  font-family:'Vazirmatn UI FD','Vazirmatn',Tahoma,system-ui,sans-serif;
+  font-size:14px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+.en{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;direction:ltr;unicode-bidi:isolate}
+.mut{color:var(--text-2)} .mut3{color:var(--text-3)}
+.row{display:flex;align-items:center;gap:8px}
+
+/* ============ نوار بالا ============ */
+.top{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--border);
+  box-shadow:var(--shadow-1)}
+.top-in{max-width:1240px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px}
+.logo .mk{width:38px;height:38px;border-radius:11px;background:var(--primary);color:#fff;display:grid;
+  place-items:center;font-weight:700;font-size:16px;box-shadow:var(--shadow-1)}
+.logo b{display:block;font-size:15px;line-height:1.4}
+.logo span{display:block;font-size:11.5px;color:var(--text-3);line-height:1.4}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:38px;padding:0 15px;
+  border-radius:10px;background:var(--surface);border:1px solid var(--border-2);color:var(--text);
+  font:inherit;font-size:13.5px;font-weight:600;transition:.15s;white-space:nowrap;cursor:pointer}
+.btn:hover{border-color:var(--brand-400);color:var(--primary-2)}
+.btn-p{background:var(--primary);border-color:var(--primary);color:var(--primary-fg)}
+.btn-p:hover{background:var(--primary-hover);border-color:var(--primary-hover);color:var(--primary-fg)}
+.btn-soft{background:var(--brand-50);border-color:transparent;color:var(--primary-2)}
+[data-theme="dark"] .btn-soft{background:var(--surface-3);color:var(--text)}
+.btn-sm{height:31px;padding:0 11px;font-size:12.5px;border-radius:8px}
+
+/* ============ چیدمان ============ */
+.wrap{max-width:1240px;margin:0 auto;padding:22px 20px 60px;display:grid;grid-template-columns:322px 1fr;gap:22px;align-items:start}
+@media(max-width:980px){.wrap{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-1)}
+.card-h{padding:13px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card-h h3{margin:0;font-size:14px;font-weight:700}
+.card-b{padding:16px}
+.side{position:sticky;top:76px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}
+.lab{font-size:12px;font-weight:600;color:var(--text-2)}
+.inp{height:40px;padding:0 12px;border-radius:10px;background:var(--surface);border:1px solid var(--border-2);
+  color:var(--text);font:inherit;font-size:13.5px;transition:.15s;width:100%}
+.inp:focus{outline:none;border-color:var(--brand-400);box-shadow:0 0 0 3px rgba(31,111,190,.14)}
+select.inp{cursor:pointer}
+.seg{display:flex;gap:6px;background:var(--surface-3);padding:4px;border-radius:11px}
+.seg button{flex:1;height:32px;border:0;border-radius:8px;background:transparent;color:var(--text-2);
+  font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;transition:.15s}
+.seg button.on{background:var(--surface);color:var(--text);box-shadow:var(--shadow-1)}
+[data-theme="dark"] .seg button.on{background:var(--primary);color:#fff}
+.hint{font-size:11.5px;color:var(--text-3);line-height:1.9;margin-top:2px}
+.hr{height:1px;background:var(--border);border:0;margin:14px 0}
+.chk{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-2);margin-bottom:9px;cursor:pointer}
+.chk input{width:16px;height:16px;accent-color:var(--brand-600)}
+
+/* ============ صحنهٔ پیش‌نمایش ============ */
+.stage{background:
+   linear-gradient(var(--surface-3) 1px,transparent 1px) 0 0/22px 22px,
+   linear-gradient(90deg,var(--surface-3) 1px,transparent 1px) 0 0/22px 22px,
+   var(--surface);
+  border:1px solid var(--border);border-radius:16px;padding:30px;min-height:340px;
+  display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start;justify-content:center}
+.spec{font-size:11.5px;color:var(--text-3);text-align:center;margin-top:9px}
+.zoomwrap{display:flex;flex-direction:column;align-items:center}
+
+/* ============ خودِ برچسب ============ */
+.lb{
+  --mm:1mm;
+  position:relative;background:#fff;color:#0b1c2f;overflow:hidden;
+  border:.25mm solid #c8d4e3;border-radius:1.6mm;
+  font-family:'Vazirmatn UI FD','Vazirmatn',Tahoma,sans-serif;
+  display:flex;flex-direction:column;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+.lb *{box-sizing:border-box}
+/* — سربرگ ناوی — */
+.lb-h{background:#0d2b4b;color:#fff;display:flex;align-items:center;gap:1mm;flex:none;
+  padding:0 1.6mm;position:relative}
+.lb-h .mk{width:3.8mm;height:3.8mm;border-radius:1mm;background:#fff;color:#0d2b4b;
+  display:grid;place-items:center;font-weight:700;line-height:1;flex:none}
+.lb-h .nm{font-weight:700;letter-spacing:.01em;white-space:nowrap}
+.lb-h .url{margin-inline-start:auto;color:#bcd7f5;direction:ltr;font-weight:600;
+  font-family:ui-monospace,Menlo,Consolas,monospace}
+.lb-h::after{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:1.2mm;background:#3f8ede}
+/* — بدنه — */
+.lb-b{flex:1;display:flex;flex-direction:column;padding:1.4mm 1.8mm 1mm;gap:.6mm;min-height:0}
+.lb-name{font-weight:700;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lb-meta{display:flex;align-items:center;gap:1.2mm;color:#4a5f79;line-height:1.5;min-height:0}
+.lb-meta .dot{width:.7mm;height:.7mm;border-radius:50%;background:#bcd7f5;flex:none}
+.lb-chip{background:#f1f6fd;border:.2mm solid #e0ecfa;color:#124270;border-radius:.9mm;
+  padding:0 .9mm;font-weight:600;white-space:nowrap;line-height:1.7}
+.lb-sku{direction:ltr;font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;color:#0d2b4b;letter-spacing:.02em}
+/* — بارکد — */
+.lb-bc{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:.2mm;
+  background:#fff;padding-top:.4mm}
+.lb-bc svg{display:block;width:100%;height:auto}
+.lb-digits{direction:ltr;font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:600;
+  letter-spacing:.14em;color:#0b1c2f;line-height:1.25}
+.lb-foot{display:flex;align-items:center;justify-content:space-between;gap:1mm;color:#8095ad;
+  border-top:.2mm dashed #dce4ee;margin-top:.6mm;padding-top:.5mm;line-height:1.5}
+
+/* حالت تک‌رنگ (چاپگر حرارتی) */
+.lb.mono{border-color:#000}
+.lb.mono .lb-h{background:#000}
+.lb.mono .lb-h::after{background:#fff}
+.lb.mono .lb-h .mk{background:#fff;color:#000}
+.lb.mono .lb-h .url{color:#fff}
+.lb.mono .lb-chip{background:#fff;border-color:#000;color:#000}
+.lb.mono,.lb.mono .lb-name,.lb.mono .lb-sku,.lb.mono .lb-digits{color:#000}
+.lb.mono .lb-meta,.lb.mono .lb-foot{color:#333}
+.lb.mono .lb-foot{border-top-color:#666}
+.lb.mono .lb-meta .dot{background:#666}
+
+/* حالت ناوی تمام‌رنگ (برچسب پریمیوم) */
+.lb.navy{background:#0d2b4b;border-color:#0a2440;color:#fff}
+.lb.navy .lb-h{background:transparent;border-bottom:.2mm solid rgba(255,255,255,.16)}
+.lb.navy .lb-h::after{background:#3f8ede}
+.lb.navy .lb-name{color:#fff}
+.lb.navy .lb-meta{color:#bcd7f5}
+.lb.navy .lb-chip{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22);color:#e0ecfa}
+.lb.navy .lb-sku{color:#fff}
+.lb.navy .lb-bc{background:#fff;border-radius:1mm;padding:.6mm .8mm .3mm}
+.lb.navy .lb-foot{color:#7fb5ea;border-top-color:rgba(255,255,255,.18)}
+
+/* — اندازه‌ها — */
+.lb.s-50x30{width:50mm;height:30mm;font-size:2.05mm}
+.lb.s-50x30 .lb-h{height:5.6mm;font-size:2.1mm}
+.lb.s-50x30 .lb-h .url{font-size:1.8mm}
+.lb.s-50x30 .lb-name{font-size:2.5mm}
+.lb.s-50x30 .lb-meta{font-size:1.85mm}
+.lb.s-50x30 .lb-digits{font-size:2.1mm}
+.lb.s-50x30 .lb-foot{font-size:1.6mm}
+
+.lb.s-60x40{width:60mm;height:40mm;font-size:2.3mm}
+.lb.s-60x40 .lb-h{height:6.6mm;font-size:2.5mm}
+.lb.s-60x40 .lb-h .mk{width:4.4mm;height:4.4mm}
+.lb.s-60x40 .lb-h .url{font-size:2mm}
+.lb.s-60x40 .lb-b{padding:1.8mm 2.2mm 1.2mm}
+.lb.s-60x40 .lb-name{font-size:3mm}
+.lb.s-60x40 .lb-meta{font-size:2.1mm}
+.lb.s-60x40 .lb-digits{font-size:2.4mm}
+.lb.s-60x40 .lb-foot{font-size:1.9mm}
+
+.lb.s-38x22{width:38mm;height:22mm;font-size:1.7mm}
+.lb.s-38x22 .lb-h{height:4.2mm;font-size:1.75mm;padding:0 1.1mm}
+.lb.s-38x22 .lb-h .mk{width:2.9mm;height:2.9mm;border-radius:.7mm}
+.lb.s-38x22 .lb-h .url{font-size:1.45mm}
+.lb.s-38x22 .lb-b{padding:.9mm 1.2mm .7mm;gap:.3mm}
+.lb.s-38x22 .lb-name{font-size:1.95mm;-webkit-line-clamp:1}
+.lb.s-38x22 .lb-meta{font-size:1.5mm}
+.lb.s-38x22 .lb-digits{font-size:1.7mm;letter-spacing:.1em}
+.lb.s-38x22 .lb-foot{display:none}
+
+/* — بزرگ‌نمایی صحنه — */
+.zoom{transform-origin:top center}
+
+/* ============ برگهٔ چاپ A4 ============ */
+.sheet{display:none}
+@media print{
+  @page{size:A4;margin:8mm}
+  .top,.wrap{display:none!important}
+  .sheet{display:flex!important;flex-wrap:wrap;align-content:flex-start;gap:2mm}
+  body{background:#fff}
+  .lb{break-inside:avoid;page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="logo">
+      <div class="mk">س</div>
+      <div>
+        <b>برچسب محصول — فروشگاه سلیم‌وند</b>
+        <span>More Features · طراحی برچسب و بارکد · نسخهٔ ۱</span>
+      </div>
+    </div>
+    <div class="row" style="margin-inline-start:auto">
+      <button class="btn" id="themeBtn">دارک مود</button>
+      <button class="btn btn-p" id="printBtn">چاپ برگهٔ A4</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- ستون تنظیمات -->
+  <aside class="card side">
+    <div class="card-h"><h3>تنظیمات برچسب</h3><span class="mut3" style="font-size:11.5px">زنده</span></div>
+    <div class="card-b">
+      <div class="field">
+        <label class="lab">انتخاب محصول از انبار</label>
+        <select class="inp" id="prod"></select>
+      </div>
+      <div class="field">
+        <label class="lab">نام محصول</label>
+        <input class="inp" id="name">
+      </div>
+      <div class="field">
+        <label class="lab">کد محصول (SKU)</label>
+        <input class="inp en" id="sku" style="text-align:left">
+      </div>
+      <div class="field">
+        <label class="lab">شمارهٔ بارکد</label>
+        <input class="inp en" id="code" style="text-align:left">
+        <div class="hint" id="codeHint"></div>
+      </div>
+      <div class="field">
+        <label class="lab">دستهٔ‌بندی / خودروی سازگار</label>
+        <input class="inp" id="meta">
+      </div>
+
+      <hr class="hr">
+
+      <div class="field">
+        <label class="lab">اندازهٔ برچسب</label>
+        <div class="seg" id="sizeSeg">
+          <button data-v="s-50x30" class="on">۵۰×۳۰</button>
+          <button data-v="s-60x40">۶۰×۴۰</button>
+          <button data-v="s-38x22">۳۸×۲۲</button>
+        </div>
+      </div>
+      <div class="field">
+        <label class="lab">سبک چاپ</label>
+        <div class="seg" id="styleSeg">
+          <button data-v="" class="on">برند (رنگی)</button>
+          <button data-v="mono">تک‌رنگ</button>
+          <button data-v="navy">ناوی</button>
+        </div>
+      </div>
+      <div class="field">
+        <label class="lab">نوع بارکد</label>
+        <div class="seg" id="typeSeg">
+          <button data-v="ean13" class="on">EAN-13</button>
+          <button data-v="code128">Code 128</button>
+        </div>
+      </div>
+
+      <hr class="hr">
+
+      <label class="chk"><input type="checkbox" id="cSku" checked> نمایش کد محصول (SKU)</label>
+      <label class="chk"><input type="checkbox" id="cMeta" checked> نمایش دسته و خودروی سازگار</label>
+      <label class="chk"><input type="checkbox" id="cFoot" checked> نمایش پانویس (گارانتی/تاریخ)</label>
+
+      <div class="field" style="margin-top:6px">
+        <label class="lab">تعداد در برگهٔ چاپ</label>
+        <input class="inp en" id="count" type="number" min="1" max="200" value="24" style="text-align:left">
+      </div>
+      <div class="hint">
+        برگهٔ چاپ روی A4 با حاشیهٔ ۸ میلی‌متر چیده می‌شود؛ برای چاپگر لیبل‌زن حرارتی
+        سبک «تک‌رنگ» و اندازهٔ دقیق رول را انتخاب کنید.
+      </div>
+    </div>
+  </aside>
+
+  <!-- ستون پیش‌نمایش -->
+  <main>
+    <div class="card" style="margin-bottom:18px">
+      <div class="card-h">
+        <h3>پیش‌نمایش زنده</h3>
+        <div class="row">
+          <button class="btn btn-sm" data-zoom="2">۲×</button>
+          <button class="btn btn-sm" data-zoom="3">۳×</button>
+          <button class="btn btn-sm" data-zoom="4">۴×</button>
+        </div>
+      </div>
+      <div class="card-b">
+        <div class="stage">
+          <div class="zoomwrap">
+            <div class="zoom" id="zoomBox"><div id="preview"></div></div>
+            <div class="spec" id="specTxt"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h"><h3>هر سه اندازه در مقیاس واقعی (۱:۱)</h3><span class="mut3" style="font-size:11.5px">۵۰×۳۰ · ۶۰×۴۰ · ۳۸×۲۲ میلی‌متر</span></div>
+      <div class="card-b"><div class="stage" id="allSizes"></div></div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <div class="card-h"><h3>سه سبک چاپ</h3><span class="mut3" style="font-size:11.5px">برند · تک‌رنگ · ناوی</span></div>
+      <div class="card-b"><div class="stage" id="allStyles"></div></div>
+    </div>
+  </main>
+</div>
+
+<div class="sheet" id="sheet"></div>
+
+<script>
+/* ================= دادهٔ نمونه (برگرفته از data.py پروژه) ================= */
+const PRODUCTS = [
+  {sku:'BRK-00452', name:'لنت ترمز جلو پژو ۲۰۶',        cat:'ترمز',            cars:'۲۰۶ تیپ ۲ و ۵ · ۲۰۷'},
+  {sku:'FLT-00118', name:'فیلتر هوای پژو ۴۰۵ و پارس',   cat:'فیلتراسیون',      cars:'۴۰۵ · پارس · سمند LX'},
+  {sku:'FLT-00203', name:'فیلتر روغن پراید و تیبا',      cat:'فیلتراسیون',      cars:'پراید · تیبا · ساینا'},
+  {sku:'ENG-00377', name:'شمع موتور سمند EF7',           cat:'موتور',           cars:'سمند EF7 · دنا'},
+  {sku:'SUS-00290', name:'کمک فنر عقب پژو پارس',         cat:'جلوبندی',         cars:'پارس · ۴۰۵'},
+  {sku:'ELE-00512', name:'چراغ جلو راست پژو ۲۰۶',        cat:'برقی و روشنایی',  cars:'۲۰۶ تیپ ۲'},
+  {sku:'ELE-00640', name:'باتری ۶۰ آمپر اتمی',           cat:'برقی و روشنایی',  cars:'عمومی — همه خودروها'},
+  {sku:'BRK-00311', name:'دیسک و صفحه کلاچ پراید',       cat:'انتقال قدرت',     cars:'پراید ۱۳۱ · ۱۳۲'},
+  {sku:'CLG-00072', name:'رادیاتور آب پژو ۲۰۶ تیپ ۵',    cat:'خنک‌کاری',        cars:'۲۰۶ تیپ ۵'},
+  {sku:'ENG-00241', name:'پمپ بنزین کامل تیبا',          cat:'موتور',           cars:'تیبا · ساینا · کوییک'},
+];
+const STORE = 'فروشگاه سلیم‌وند', SITE = 'salimvand.ir';
+const FA = s => String(s).replace(/[0-9]/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+
+/* ================= تولید شمارهٔ بارکد از SKU ================= */
+/* پیشوند ۶۲۶ = کد کشوری ایران در GS1 */
+function ean13From(sku){
+  let h = 0; for (const ch of sku) h = (h * 31 + ch.charCodeAt(0)) % 1000000000;
+  const body = ('626' + String(h).padStart(9, '0')).slice(0, 12);
+  return body + eanCheck(body);
+}
+function eanCheck(b12){
+  let s = 0; for (let i = 0; i < 12; i++) s += (+b12[i]) * (i % 2 ? 3 : 1);
+  return String((10 - (s % 10)) % 10);
+}
+
+/* ================= کدگذاری EAN-13 ================= */
+const EAN_L = ['0001101','0011001','0010011','0111101','0100011','0110001','0101111','0111011','0110111','0001011'];
+const EAN_G = ['0100111','0110011','0011011','0100001','0011101','0111001','0000101','0010001','0001001','0010111'];
+const EAN_R = ['1110010','1100110','1101100','1000010','1011100','1001110','1010000','1000100','1001000','1110100'];
+const EAN_P = ['LLLLLL','LLGLGG','LLGGLG','LLGGGL','LGLLGG','LGGLLG','LGGGLL','LGLGLG','LGLGGL','LGGLGL'];
+
+function ean13Bits(code){
+  code = code.replace(/\D/g,'');
+  if (code.length === 12) code += eanCheck(code);
+  if (code.length !== 13) return null;
+  if (code[12] !== eanCheck(code.slice(0,12))) code = code.slice(0,12) + eanCheck(code.slice(0,12));
+  const p = EAN_P[+code[0]];
+  let bits = '101';
+  for (let i = 1; i <= 6; i++) bits += (p[i-1] === 'L' ? EAN_L : EAN_G)[+code[i]];
+  bits += '01010';
+  for (let i = 7; i <= 12; i++) bits += EAN_R[+code[i]];
+  bits += '101';
+  return {bits, code};
+}
+
+/* ================= کدگذاری Code 128 (حالت B) ================= */
+const C128 = ["11011001100","11001101100","11001100110","10010011000","10010001100","10001001100","10011001000","10011000100","10001100100","11001001000","11001000100","11000100100","10110011100","10011011100","10011001110","10111001100","10011101100","10011100110","11001110010","11001011100","11001001110","11011100100","11001110100","11101101110","11101001100","11100101100","11100100110","11101100100","11100110100","11100110010","11011011000","11011000110","11000110110","10100011000","10001011000","10001000110","10110001000","10001101000","10001100010","11010001000","11000101000","11000100010","10110111000","10110001110","10001101110","10111011000","10111000110","10001110110","11101110110","11010001110","11000101110","11011101000","11011100010","11011101110","11101011000","11101000110","11100010110","11101101000","11101100010","11100011010","11101111010","11001000010","11110001010","10100110000","10100001100","10010110000","10010000110","10000101100","10000100110","10110010000","10110000100","10011010000","10011000010","10000110100","10000110010","11000010010","11001010000","11110111010","11000010100","10001111010","10100111100","10010111100","10010011110","10111100100","10011110100","10011110010","11110100100","11110010100","11110010010","11011011110","11011110110","11110110110","10101111000","10100011110","10001011110","10111101000","10111100010","11110101000","11110100010","10111011110","10111101110","11101011110","11110101110","11010000100","11010010000","11010011100","11000111010"];
+const C128_STOP = "1100011101011";
+function code128Bits(text){
+  const codes = [104]; // Start B
+  for (const ch of text){
+    const v = ch.charCodeAt(0) - 32;
+    codes.push(v >= 0 && v <= 94 ? v : 0);
+  }
+  let sum = 104;
+  for (let i = 1; i < codes.length; i++) sum += codes[i] * i;
+  codes.push(sum % 103);
+  return {bits: codes.map(c => C128[c]).join('') + C128_STOP, code: text};
+}
+
+/* ================= رسم SVG بارکد ================= */
+function barcodeSVG(bits, h){
+  const n = bits.length, parts = [];
+  let i = 0;
+  while (i < n){
+    if (bits[i] === '1'){
+      let j = i; while (j < n && bits[j] === '1') j++;
+      parts.push(`<rect x="${i}" y="0" width="${j-i}" height="${h}" />`);
+      i = j;
+    } else i++;
+  }
+  return `<svg viewBox="0 0 ${n} ${h}" preserveAspectRatio="none" shape-rendering="crispEdges" role="img" aria-label="barcode">
+    <g fill="currentColor">${parts.join('')}</g></svg>`;
+}
+
+/* ================= ساخت یک برچسب ================= */
+function label(o){
+  const size = o.size || 's-50x30';
+  const sty  = o.style || '';
+  const type = o.type || 'ean13';
+  const enc  = type === 'ean13' ? ean13Bits(o.code || '') : code128Bits((o.code || o.sku || '').toUpperCase());
+  const bh   = size === 's-60x40' ? 34 : size === 's-38x22' ? 20 : 26;
+  const bars = enc ? barcodeSVG(enc.bits, bh) : '<div style="font-size:2mm;color:#c8383c">شمارهٔ بارکد نامعتبر</div>';
+  const digits = enc ? (type === 'ean13'
+        ? enc.code.slice(0,1) + ' ' + enc.code.slice(1,7) + ' ' + enc.code.slice(7)
+        : enc.code) : '';
+  const bcStyle = `height:${size==='s-60x40'?'8mm':size==='s-38x22'?'5mm':'6.4mm'}`;
+
+  const metaRow = o.showMeta ? `
+      <div class="lb-meta">
+        <span class="lb-chip">${o.cat || ''}</span>
+        <span class="dot"></span>
+        <span style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis">${o.cars || ''}</span>
+      </div>` : '';
+  const skuRow = o.showSku ? `
+      <div class="lb-meta" style="justify-content:space-between">
+        <span style="font-weight:600">کد کالا</span>
+        <span class="lb-sku">${o.sku || ''}</span>
+      </div>` : '';
+  const foot = o.showFoot && size !== 's-38x22' ? `
+      <div class="lb-foot">
+        <span>اصالت و گارانتی کالا</span>
+        <span class="en">${SITE}</span>
+      </div>` : '';
+
+  return `
+  <div class="lb ${size} ${sty}">
+    <div class="lb-h">
+      <div class="mk">س</div>
+      <div class="nm">${STORE}</div>
+      <div class="url">${SITE}</div>
+    </div>
+    <div class="lb-b">
+      <div class="lb-name">${o.name || ''}</div>
+      ${metaRow}
+      ${skuRow}
+      <div class="lb-bc">
+        <div style="${bcStyle};width:100%;color:inherit">${bars}</div>
+        <div class="lb-digits">${digits}</div>
+      </div>
+      ${foot}
+    </div>
+  </div>`;
+}
+
+/* ================= وضعیت و اتصال ================= */
+const S = {size:'s-50x30', style:'', type:'ean13', zoom:3};
+const $ = s => document.querySelector(s);
+const el = {prod:$('#prod'), name:$('#name'), sku:$('#sku'), code:$('#code'), meta:$('#meta'),
+            cSku:$('#cSku'), cMeta:$('#cMeta'), cFoot:$('#cFoot'), count:$('#count')};
+
+PRODUCTS.forEach((p,i)=>{
+  const o = document.createElement('option');
+  o.value = i; o.textContent = p.name + ' — ' + p.sku;
+  el.prod.appendChild(o);
+});
+
+function loadProduct(i){
+  const p = PRODUCTS[i];
+  el.name.value = p.name; el.sku.value = p.sku;
+  el.code.value = ean13From(p.sku); el.meta.value = p.cars;
+  el.prod.dataset.cat = p.cat;
+  render();
+}
+
+function current(over){
+  return Object.assign({
+    name: el.name.value, sku: el.sku.value, code: el.code.value,
+    cat: el.prod.dataset.cat || PRODUCTS[+el.prod.value].cat, cars: el.meta.value,
+    size: S.size, style: S.style, type: S.type,
+    showSku: el.cSku.checked, showMeta: el.cMeta.checked, showFoot: el.cFoot.checked
+  }, over || {});
+}
+
+const SIZE_TXT = {'s-50x30':'۵۰ × ۳۰ میلی‌متر','s-60x40':'۶۰ × ۴۰ میلی‌متر','s-38x22':'۳۸ × ۲۲ میلی‌متر'};
+function render(){
+  const o = current();
+  $('#preview').innerHTML = label(o);
+  $('#zoomBox').style.transform = `scale(${S.zoom})`;
+  const box = $('#zoomBox'), inner = box.firstElementChild;
+  box.style.height = (inner.getBoundingClientRect().height) + 'px';
+  box.style.width  = (inner.getBoundingClientRect().width) + 'px';
+  $('#specTxt').textContent = SIZE_TXT[S.size] + ' · بزرگ‌نمایی ' + FA(S.zoom) + '× · ' +
+     (S.type === 'ean13' ? 'EAN-13' : 'Code 128') + ' · ' + (S.style === 'mono' ? 'تک‌رنگ' : S.style === 'navy' ? 'ناوی' : 'برند');
+
+  $('#allSizes').innerHTML = ['s-50x30','s-60x40','s-38x22'].map(s => label(current({size:s}))).join('');
+  $('#allStyles').innerHTML = ['','mono','navy'].map(st => label(current({style:st}))).join('');
+
+  const n = Math.max(1, Math.min(200, +el.count.value || 1));
+  $('#sheet').innerHTML = Array.from({length:n}, () => label(o)).join('');
+}
+
+function seg(id, key){
+  document.querySelectorAll('#'+id+' button').forEach(b => b.onclick = () => {
+    document.querySelectorAll('#'+id+' button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on'); S[key] = b.dataset.v;
+    if (key === 'type'){
+      el.code.value = S.type === 'ean13' ? ean13From(el.sku.value) : el.sku.value;
+      hint();
+    }
+    render();
+  });
+}
+seg('sizeSeg','size'); seg('styleSeg','style'); seg('typeSeg','type');
+
+function hint(){
+  $('#codeHint').textContent = S.type === 'ean13'
+    ? 'EAN-13 با پیشوند ۶۲۶ (کد ایران) و رقم کنترلی خودکار از روی SKU ساخته می‌شود.'
+    : 'Code 128 مستقیماً همان کد محصول (SKU) را کدگذاری می‌کند.';
+}
+
+document.querySelectorAll('[data-zoom]').forEach(b => b.onclick = () => { S.zoom = +b.dataset.zoom; render(); });
+el.prod.onchange = () => loadProduct(+el.prod.value);
+['name','sku','meta','code','count'].forEach(k => el[k].oninput = render);
+el.sku.oninput = () => { if (S.type === 'code128') el.code.value = el.sku.value; render(); };
+['cSku','cMeta','cFoot'].forEach(k => el[k].onchange = render);
+$('#printBtn').onclick = () => window.print();
+$('#themeBtn').onclick = () => {
+  const d = document.documentElement.dataset.theme === 'dark';
+  document.documentElement.dataset.theme = d ? 'light' : 'dark';
+  $('#themeBtn').textContent = d ? 'دارک مود' : 'لایت مود';
+};
+
+hint(); loadProduct(0);
+</script>
+</body>
+</html>
