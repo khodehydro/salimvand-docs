@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071c30">
+  <meta name="description" content="کانسپت رابط کاربری اپلیکیشن اندروید پنل مدیریت فروشگاه سلیم‌وند">
+  <title>سلیم‌وند · پنل مدیریت موبایل</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Inline icon set keeps the prototype offline and easy to move into Android/Compose. -->
+  <svg aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden">
+    <defs>
+      <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3.7 8.8a13 13 0 0 1 16.6 0M6.7 12a8.3 8.3 0 0 1 10.6 0M9.9 15.2a3.5 3.5 0 0 1 4.2 0M12 19h.01"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18.3 16.3H5.7l1.4-2.1v-4a4.9 4.9 0 0 1 9.8 0v4z"/><path d="M10 19.2a2.1 2.1 0 0 0 4 0"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10.6" cy="10.6" r="6.3"/><path d="m15.3 15.3 5 5"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3.7 10.8 8.3-7 8.3 7"/><path d="M6.4 9.8v10h11.2v-10M10 19.8v-5.5h4v5.5"/></symbol>
+      <symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.7h12a1.8 1.8 0 0 1 1.8 1.8v14.8l-3.1-1.9-2.7 1.9-3-1.9-3 1.9-3.1-1.9V5.5A1.8 1.8 0 0 1 6 3.7z"/><path d="M8.5 8h7M8.5 11.5h7M8.5 15h4"/></symbol>
+      <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.5 8.3 4.3v8.4L12 20.5l-8.3-4.3V7.8z"/><path d="m3.7 7.8 8.3 4.4 8.3-4.4M12 12.2v8.3"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.6 8.3 4.2-8.3 4.2-8.3-4.2z"/><path d="m3.7 12 8.3 4.3 8.3-4.3M3.7 16.3l8.3 4.2 8.3-4.2"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.2" cy="8.3" r="3.2"/><path d="M3.5 19.5a5.8 5.8 0 0 1 11.4 0M16.2 6.2a3.2 3.2 0 0 1 0 6.2M17 14.3a5.4 5.4 0 0 1 3.5 5.2"/></symbol>
+      <symbol id="i-more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="5.5" y="12" width="3.5" height="6" rx="1"/><rect x="10.5" y="8" width="3.5" height="10" rx="1"/><rect x="15.5" y="4.5" width="3.5" height="13.5" rx="1"/></symbol>
+      <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.1"/><path d="M19.2 14.5a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1v.3a2 2 0 1 1-4 0v-.2a1.6 1.6 0 0 0-2.8-1.1l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7h-.3a2 2 0 1 1 0-4h.2a1.6 1.6 0 0 0 1.1-2.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 2.7-1.1v-.3a2 2 0 1 1 4 0v.2a1.6 1.6 0 0 0 2.8 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7h.3a2 2 0 1 1 0 4h-.2a1.6 1.6 0 0 0-1.4.9z"/></symbol>
+      <symbol id="i-archive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="4.2" rx="1.3"/><path d="M5 8.2v10.1a1.7 1.7 0 0 0 1.7 1.7h10.6a1.7 1.7 0 0 0 1.7-1.7V8.2M9.3 12.5h5.4"/></symbol>
+      <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 15.5h15M6.4 15.5l1.5-5.1a2 2 0 0 1 1.9-1.5h4.3a2 2 0 0 1 1.9 1.5l1.4 5.1v3.2H15v-1.5H9v1.5H6.4zM7.3 12.7h9.4"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5h10.4v10.2H3z"/><path d="M13.4 9.3h4l3.1 3.2v4.2h-7.1z"/><circle cx="7" cy="18.2" r="1.8"/><circle cx="17.4" cy="18.2" r="1.8"/></symbol>
+      <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.2A2.2 2.2 0 0 1 6.7 4h11.6a1.2 1.2 0 0 1 1.2 1.2v2.1H6.4a2 2 0 0 0 0 4h13.1v6.5a2.2 2.2 0 0 1-2.2 2.2H6.7a2.2 2.2 0 0 1-2.2-2.2z"/><path d="M19.5 11.3h-3.8a1.8 1.8 0 0 0 0 3.6h3.8"/></symbol>
+      <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m4 16.8 5.1-5.2 3.3 3.2 7-7"/><path d="M15.7 7.8h3.8v3.8"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 21 19H3z"/><path d="M12 9.8v4M12 16.2v.3"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.4L19 7.2"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6.5 6.5 11 11M17.5 6.5l-11 11"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m7 10 5 5 5-5"/></symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.2"/><path d="M12 7.4v4.9l3.2 1.8"/></symbol>
+      <symbol id="i-barcode" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 5.5v13M7 5.5v13M10 5.5v9M13 5.5v13M16 5.5v9M19 5.5v13M21 5.5v13"/></symbol>
+      <symbol id="i-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5V6a2 2 0 0 1 2-2h2.5M15.5 4H18a2 2 0 0 1 2 2v2.5M20 15.5V18a2 2 0 0 1-2 2h-2.5M8.5 20H6a2 2 0 0 1-2-2v-2.5M3.5 12h17"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 19.2V8.8a2 2 0 0 1 2-2h2.4l1.4-2.2h4.8l1.4 2.2h2.4a2 2 0 0 1 2 2v10.4a2 2 0 0 1-2 2H5.8a2 2 0 0 1-2-2z"/><circle cx="12" cy="13.8" r="3.4"/></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 6.5h16M7 12h10M10 17.5h4"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3.8"/><path d="M12 2.7v2.2M12 19.1v2.2M4.5 4.5l1.6 1.6M17.9 17.9l1.6 1.6M2.7 12h2.2M19.1 12h2.2M4.5 19.5l1.6-1.6M17.9 6.1l1.6-1.6"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 14.5A8.5 8.5 0 0 1 9.5 3.8 8.6 8.6 0 1 0 20.2 14.5z"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4.7 20.2a7.3 7.3 0 0 1 14.6 0"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.8h3l1.4 4-2 1.3a12.2 12.2 0 0 0 6.4 6.4l1.3-2 4 1.4v3a2 2 0 0 1-2.2 2A16.2 16.2 0 0 1 4.2 6a2 2 0 0 1 2-2.2z"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.7v10.5M8.2 10.6l3.8 3.8 3.8-3.8M4.7 18.4h14.6"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6 19.4 6v5.4c0 4.5-3.1 7.7-7.4 9.2-4.3-1.5-7.4-4.7-7.4-9.2V6z"/><path d="m9.2 12 2.1 2.1 3.8-4"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10M12 14v2"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.7 6.3L20 11l-6.3 1.7L12 19l-1.7-6.3L4 11l6.3-1.7z"/><path d="m19 17 .6 2.4L22 20l-2.4.6L19 23l-.6-2.4L16 20l2.4-.6z"/></symbol>
+      <symbol id="part-brake" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18h42a5 5 0 0 1 5 5v9H10v-9a5 5 0 0 1 5-5z"/><path d="M10 32h52v7a7 7 0 0 1-7 7H17a7 7 0 0 1-7-7z"/><path d="M24 22v10M36 22v10M48 22v10M22 52l-5 6M50 52l5 6"/></symbol>
+      <symbol id="part-filter" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="22" width="56" height="30" rx="6"/><path d="M8 32h56M8 42h56M18 22v30M28 22v30M38 22v30M48 22v30M58 22v30"/></symbol>
+      <symbol id="part-oil" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="18" width="28" height="40" rx="7"/><path d="M22 28h28M22 38h28M22 48h28M30 18v-6h12v6"/><circle cx="36" cy="36" r="2.5"/></symbol>
+      <symbol id="part-shock" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M30 6h12v8H30zM34 14v6M26 20h20M28 28h16M26 36h20M28 44h16M26 52h20M32 52h8v12h-8z"/></symbol>
+      <symbol id="part-battery" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="20" width="56" height="38" rx="5"/><path d="M18 20v-6h10v6M44 20v-6h10v6M20 34h12M26 28v12M44 34h12M8 44h56"/></symbol>
+      <symbol id="part-spark" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M30 6h12v12H30zM32 18h8v14h-8zM28 32h16v8H28zM33 40v10l-4 6M39 40v10l4 6"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="app-wrap">
+    <div class="app-shell" id="appShell">
+      <div class="status-bar" aria-hidden="true">
+        <div class="status-left"><span>۱۰:۲۴</span><svg class="status-icon"><use href="#i-wifi"></use></svg><span>LTE</span></div>
+        <div class="status-right"><span>۸۵٪</span><span class="battery"><i></i></span></div>
+      </div>
+
+      <header class="app-header">
+        <button class="icon-btn" type="button" data-open-sheet="profileSheet" aria-label="پروفایل کاربر"><span class="avatar" style="width:32px;height:32px;border-radius:10px;font-size:11px;background:var(--brand-800);color:#fff">مس</span></button>
+        <div class="brand">
+          <div class="logo"><span>س</span></div>
+          <div class="brand-copy"><strong>فروشگاه سلیم‌وند</strong><small>پنل مدیریت · موبایل</small></div>
+        </div>
+        <div class="header-spacer"></div>
+        <button class="icon-btn" type="button" data-open-sheet="notificationSheet" aria-label="اعلان‌ها"><svg class="icon"><use href="#i-bell"></use></svg><i class="notification-dot"></i></button>
+      </header>
+
+      <main class="app-main" id="mainContent">
+        <!-- Dashboard -->
+        <section class="page active" id="page-home" data-page="home">
+          <div class="screen-heading">
+            <div class="heading-copy"><span class="eyebrow">سه‌شنبه، ۳ شهریور ۱۴۰۵</span><h1>سلام مهدی <span aria-hidden="true">👋</span></h1><p>نمای کلی فروشگاه امروز</p></div>
+            <button class="icon-btn small heading-action" type="button" data-action="calendar" aria-label="تقویم"><svg class="icon"><use href="#i-clock"></use></svg></button>
+          </div>
+
+          <label class="search-field" aria-label="جست‌وجوی سریع">
+            <svg><use href="#i-search"></use></svg><input type="search" placeholder="جست‌وجوی قطعه، مشتری یا فاکتور…" data-search-global><button class="search-action" type="button" data-open-sheet="searchSheet" aria-label="بارکدخوان"><svg><use href="#i-barcode"></use></svg></button>
+          </label>
+
+          <div class="summary-card">
+            <div class="summary-top"><span class="label">خلاصهٔ فروش امروز</span><span class="date">به‌روزرسانی ۱۰:۲۲</span></div>
+            <div class="summary-value"><strong>۴۸,۶۲۰,۰۰۰</strong><span>ریال</span></div>
+            <div class="summary-meta"><svg><use href="#i-trend"></use></svg><span class="up">۱۸٪ بیشتر از دیروز</span><span>· ۲۳ فاکتور</span></div>
+            <div class="summary-divider"></div>
+            <div class="summary-bottom">
+              <div class="summary-stat"><span class="mini-icon"><svg><use href="#i-receipt"></use></svg></span><div><b>۲۳</b><span>فاکتور امروز</span></div></div>
+              <div class="summary-stat"><span class="mini-icon"><svg><use href="#i-wallet"></use></svg></span><div><b>۱۱</b><span>مشتری جدید</span></div></div>
+            </div>
+          </div>
+
+          <div class="section-row"><h2>دسترسی سریع</h2><button class="link" type="button" data-action="edit-shortcuts">ویرایش</button></div>
+          <div class="quick-grid">
+            <button class="quick-tile" type="button" data-open-sheet="invoiceSheet"><span class="tile-icon"><svg><use href="#i-receipt"></use></svg></span><b>فاکتور جدید</b><small>صدور سریع</small></button>
+            <button class="quick-tile" type="button" data-page-target="inventory"><span class="tile-icon"><svg><use href="#i-archive"></use></svg></span><b>ورود کالا</b><small>ثبت موجودی</small></button>
+            <button class="quick-tile" type="button" data-page-target="products"><span class="tile-icon"><svg><use href="#i-box"></use></svg></span><b>محصولات</b><small>۱۴۲ محصول</small></button>
+            <button class="quick-tile" type="button" data-page-target="sales"><span class="tile-icon"><svg><use href="#i-chart"></use></svg></span><b>گزارش فروش</b><small>روند ماهانه</small></button>
+          </div>
+
+          <div class="section-row"><h2>نیاز به رسیدگی</h2><button class="link" type="button" data-page-target="inventory">مشاهده همه</button></div>
+          <div class="card alert-card">
+            <div class="card-header"><svg class="alert-title-icon"><use href="#i-alert"></use></svg><h3>کمبود موجودی</h3><span class="status-number">۷ قلم</span></div>
+            <div class="card-body">
+              <div class="list-item"><span class="item-icon orange"><svg class="part-icon"><use href="#part-brake"></use></svg></span><div class="item-copy"><b>لنت ترمز جلو پژو ۲۰۶</b><span>ایساکو · قفسهٔ A-03-2</span><div class="stock-progress warn"><i style="width:20%"></i></div></div><div class="item-end"><strong>۲ <small>از ۱۰</small></strong><span class="badge warn">کمبود</span></div></div>
+              <div class="list-item"><span class="item-icon red"><svg class="part-icon"><use href="#part-shock"></use></svg></span><div class="item-copy"><b>کمک فنر عقب پژو پارس</b><span>کی‌بی‌ای · قفسهٔ D-07-3</span><div class="stock-progress danger"><i style="width:4%"></i></div></div><div class="item-end"><strong>۰ <small>از ۴</small></strong><span class="badge danger">ناموجود</span></div></div>
+              <div class="list-item"><span class="item-icon orange"><svg class="part-icon"><use href="#part-battery"></use></svg></span><div class="item-copy"><b>باتری ۶۰ آمپر اتمی</b><span>صبا · قفسهٔ C-02-4</span><div class="stock-progress warn"><i style="width:17%"></i></div></div><div class="item-end"><strong>۱ <small>از ۶</small></strong><span class="badge warn">کمبود</span></div></div>
+            </div>
+          </div>
+
+          <div class="section-row"><h2>آخرین فاکتورها</h2><button class="link" type="button" data-page-target="sales">همه فاکتورها</button></div>
+          <div class="card invoice-card">
+            <div class="card-body">
+              <div class="list-item invoice-item"><span class="item-icon"><svg><use href="#i-receipt"></use></svg></span><div class="item-copy"><b>۱۴۰۵/۰۰۳۴۷ — علی محمدی</b><span>۳ قلم · امروز ۱۴:۲۲</span></div><div class="item-end invoice-amount"><strong>۲۲۸,۷۰۰,۰۰۰</strong><small class="badge danger">بدهی</small></div></div>
+              <div class="list-item invoice-item"><span class="item-icon"><svg><use href="#i-receipt"></use></svg></span><div class="item-copy"><b>۱۴۰۵/۰۰۳۴۶ — مکانیکی صدف</b><span>۸ قلم · امروز ۱۲:۰۵</span></div><div class="item-end invoice-amount"><strong>۹۶,۵۰۰,۰۰۰</strong><small class="badge ok">تسویه</small></div></div>
+              <div class="list-item invoice-item"><span class="item-icon"><svg><use href="#i-receipt"></use></svg></span><div class="item-copy"><b>۱۴۰۵/۰۰۳۴۵ — رضا کریمی</b><span>۲ قلم · امروز ۱۰:۴۱</span></div><div class="item-end invoice-amount"><strong>۱۲,۴۰۰,۰۰۰</strong><small class="badge ok">تسویه</small></div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sales -->
+        <section class="page" id="page-sales" data-page="sales">
+          <div class="screen-heading"><div class="heading-copy"><span class="eyebrow">فروشگاه · فروش</span><h1>فروش</h1><p>عملکرد فروش و فاکتورهای اخیر</p></div><button class="primary-btn heading-action" type="button" data-open-sheet="invoiceSheet"><svg><use href="#i-plus"></use></svg>فاکتور جدید</button></div>
+          <div class="kpi-grid">
+            <div class="kpi-card"><div class="kpi-label"><svg><use href="#i-wallet"></use></svg>فروش امروز</div><strong>۴۸,۶۲۰,۰۰۰</strong><small>ریال</small><div class="kpi-foot"><svg><use href="#i-trend"></use></svg>۱۸٪ رشد روزانه</div></div>
+            <div class="kpi-card"><div class="kpi-label"><svg><use href="#i-receipt"></use></svg>فاکتورهای امروز</div><strong>۲۳</strong><small>فاکتور ثبت‌شده</small><div class="kpi-foot"><svg><use href="#i-trend"></use></svg>۴ مورد بیشتر</div></div>
+            <div class="kpi-card"><div class="kpi-label"><svg><use href="#i-clock"></use></svg>در انتظار پرداخت</div><strong>۴</strong><small>فاکتور بدهی‌دار</small><div class="kpi-foot warn"><svg><use href="#i-alert"></use></svg>پیگیری لازم</div></div>
+            <div class="kpi-card"><div class="kpi-label"><svg><use href="#i-users"></use></svg>مشتریان جدید</div><strong>۱۱</strong><small>در ۷ روز اخیر</small><div class="kpi-foot"><svg><use href="#i-trend"></use></svg>۱۲٪ رشد</div></div>
+          </div>
+          <div class="card chart-card">
+            <div class="card-header"><h3>روند فروش</h3><span class="card-meta">روزانه · ۳۰ روز اخیر</span></div>
+            <div class="chart-wrap"><div class="chart-top"><b>۱,۲۸۴,۶۰۰,۰۰۰ <small style="font-size:9px;color:var(--text-3);font-weight:400">ریال</small></b><span class="badge ok">+۲۴٪</span></div><div class="segmented" style="margin-top:11px"><button type="button">امروز</button><button type="button" class="active">۷ روز</button><button type="button">۳۰ روز</button></div><div class="bars"><div class="bar-column"><i style="height:43%"></i><span>۲۸</span></div><div class="bar-column"><i style="height:64%"></i><span>۲۹</span></div><div class="bar-column"><i style="height:52%"></i><span>۳۰</span></div><div class="bar-column"><i style="height:75%"></i><span>۳۱</span></div><div class="bar-column"><i style="height:44%"></i><span>۱</span></div><div class="bar-column"><i style="height:88%"></i><span>۲</span></div><div class="bar-column today"><i style="height:67%"></i><span>۳</span></div></div><div class="chart-axis"><span>۲۸ مرداد</span><span>امروز، ۳ شهریور</span></div></div>
+          </div>
+          <div class="section-row"><h2>فاکتورهای اخیر</h2><button class="link" type="button" data-action="export">خروجی</button></div>
+          <div class="filter-row" style="margin-top:0"><button class="filter-chip active" type="button" data-filter-group="invoice">همه <span>۱,۲۴۸</span></button><button class="filter-chip" type="button" data-filter-group="invoice">بدهی‌دار <span>۴</span></button><button class="filter-chip" type="button" data-filter-group="invoice">تسویه <span>۱,۲۲۵</span></button><button class="filter-chip" type="button" data-filter-group="invoice">مرجوعی <span>۳</span></button></div>
+          <div class="card invoice-card" style="margin-top:0"><div class="card-body">
+            <div class="list-item invoice-item"><span class="item-icon"><svg><use href="#i-receipt"></use></svg></span><div class="item-copy"><b>۱۴۰۵/۰۰۳۴۷ — علی محمدی</b><span>۳ شهریور · ۳ قلم · ۱۴:۲۲</span></div><div class="item-end invoice-amount"><strong>۲۲۸,۷۰۰,۰۰۰</strong><small class="badge danger">۷۸,۷۰۰,۰۰۰ بدهی</small></div></div>
+            <div class="list-item invoice-item"><span class="item-icon"><svg><use href="#i-receipt"></use></svg></span><div class="item-copy"><b>۱۴۰۵/۰۰۳۴۶ — مکانیکی صدف</b><span>۳ شهریور · ۸ قلم · ۱۲:۰۵</span></div><div class="item-end invoice-amount"><strong>۹۶,۵۰۰,۰۰۰</strong><small class="badge ok">تسویه</small></div></div>
+            <div class="list-item invoice-item"><span class="item-icon"><svg><use href="#i-receipt"></use></svg></span><div class="item-copy"><b>۱۴۰۵/۰۰۳۴۴ — تعمیرگاه برادران نوری</b><span>۲ شهریور · ۱۱ قلم · ۱۸:۳۰</span></div><div class="item-end invoice-amount"><strong>۲۱۵,۰۰۰,۰۰۰</strong><small class="badge danger">بدهی</small></div></div>
+            <div class="list-item invoice-item"><span class="item-icon"><svg><use href="#i-receipt"></use></svg></span><div class="item-copy"><b>۱۴۰۵/۰۰۳۴۳ — حسین اکبری</b><span>۲ شهریور · ۱ قلم · ۱۶:۱۲</span></div><div class="item-end invoice-amount"><strong>۴,۲۰۰,۰۰۰</strong><small class="badge ok">تسویه</small></div></div>
+          </div></div>
+        </section>
+
+        <!-- Inventory -->
+        <section class="page" id="page-inventory" data-page="inventory">
+          <div class="screen-heading"><div class="heading-copy"><span class="eyebrow">فروشگاه · انبار</span><h1>انبار</h1><p>موجودی به تفکیک محصول و برند</p></div><button class="icon-btn small heading-action" type="button" data-action="receive" aria-label="ورود کالا"><svg class="icon"><use href="#i-archive"></use></svg></button></div>
+          <div class="kpi-grid">
+            <div class="kpi-card"><div class="kpi-label"><svg><use href="#i-box"></use></svg>اقلام فعال</div><strong>۴۸۶</strong><small>در ۱۴۲ محصول</small></div>
+            <div class="kpi-card"><div class="kpi-label"><svg><use href="#i-alert"></use></svg>زیر آستانه</div><strong style="color:var(--warn)">۷</strong><small>نیاز به سفارش</small></div>
+          </div>
+          <label class="search-field" style="margin-top:13px"><svg><use href="#i-search"></use></svg><input type="search" placeholder="نام قطعه، برند یا بارکد…" data-inventory-search><button class="search-action" type="button" data-action="scan"><svg><use href="#i-scan"></use></svg></button></label>
+          <div class="filter-row"><button class="filter-chip active" type="button" data-stock-filter="all">همه <span>۴۸۶</span></button><button class="filter-chip" type="button" data-stock-filter="low">کمبود <span>۷</span></button><button class="filter-chip" type="button" data-stock-filter="zero">صفر <span>۱۲</span></button><button class="filter-chip" type="button" data-stock-filter="shelf">بدون قفسه <span>۳</span></button></div>
+          <div class="inventory-list" id="inventoryList">
+            <article class="inventory-item" data-stock="low" data-search="لنت ترمز جلو پژو ۲۰۶ ایساکو BRK-00452 A-03-2"><div class="inventory-main"><span class="item-icon orange"><svg class="part-icon"><use href="#part-brake"></use></svg></span><div class="item-copy"><b>لنت ترمز جلو پژو ۲۰۶</b><span>ایساکو · <span class="en">BRK-00452</span></span></div><div class="stock-value"><strong>۵</strong><small>موجودی</small></div></div><div class="inventory-foot"><span class="shelf"><svg><use href="#i-archive"></use></svg><bdi>A-03-2</bdi></span><div class="stock-progress warn"><i style="width:50%"></i></div><span class="badge warn">کمبود</span><button class="icon-btn small" type="button" data-action="adjust" aria-label="اصلاح موجودی"><svg><use href="#i-more"></use></svg></button></div></article>
+            <article class="inventory-item" data-stock="all" data-search="فیلتر روغن پراید و تیبا بوش FLT-00203 B-11-3"><div class="inventory-main"><span class="item-icon blue"><svg class="part-icon"><use href="#part-oil"></use></svg></span><div class="item-copy"><b>فیلتر روغن پراید و تیبا</b><span>بوش · <span class="en">FLT-00203</span></span></div><div class="stock-value"><strong>۲۴</strong><small>موجودی</small></div></div><div class="inventory-foot"><span class="shelf"><svg><use href="#i-archive"></use></svg><bdi>B-11-3</bdi></span><div class="stock-progress"><i style="width:100%"></i></div><span class="badge ok">سالم</span><button class="icon-btn small" type="button" data-action="adjust" aria-label="اصلاح موجودی"><svg><use href="#i-more"></use></svg></button></div></article>
+            <article class="inventory-item" data-stock="low" data-search="فیلتر هوای پژو ۴۰۵ سرکان FLT-00118 B-11-1"><div class="inventory-main"><span class="item-icon orange"><svg class="part-icon"><use href="#part-filter"></use></svg></span><div class="item-copy"><b>فیلتر هوای پژو ۴۰۵</b><span>سرکان · <span class="en">FLT-00118</span></span></div><div class="stock-value"><strong>۲</strong><small>موجودی</small></div></div><div class="inventory-foot"><span class="shelf"><svg><use href="#i-archive"></use></svg><bdi>B-11-1</bdi></span><div class="stock-progress warn"><i style="width:13%"></i></div><span class="badge warn">کمبود</span><button class="icon-btn small" type="button" data-action="adjust" aria-label="اصلاح موجودی"><svg><use href="#i-more"></use></svg></button></div></article>
+            <article class="inventory-item" data-stock="zero" data-search="کمک فنر عقب پژو پارس کی بی ای SUS-00290 D-07-3"><div class="inventory-main"><span class="item-icon red"><svg class="part-icon"><use href="#part-shock"></use></svg></span><div class="item-copy"><b>کمک فنر عقب پژو پارس</b><span>کی‌بی‌ای · <span class="en">SUS-00290</span></span></div><div class="stock-value"><strong>۰</strong><small>موجودی</small></div></div><div class="inventory-foot"><span class="shelf"><svg><use href="#i-archive"></use></svg><bdi>D-07-3</bdi></span><div class="stock-progress danger"><i style="width:4%"></i></div><span class="badge danger">صفر</span><button class="icon-btn small" type="button" data-action="adjust" aria-label="اصلاح موجودی"><svg><use href="#i-more"></use></svg></button></div></article>
+            <article class="inventory-item" data-stock="all" data-search="شمع موتور سمند EF7 NGK ENG-00377 B-04-5"><div class="inventory-main"><span class="item-icon blue"><svg class="part-icon"><use href="#part-spark"></use></svg></span><div class="item-copy"><b>شمع موتور سمند EF7</b><span>NGK · <span class="en">ENG-00377</span></span></div><div class="stock-value"><strong>۱۸</strong><small>موجودی</small></div></div><div class="inventory-foot"><span class="shelf"><svg><use href="#i-archive"></use></svg><bdi>B-04-5</bdi></span><div class="stock-progress"><i style="width:100%"></i></div><span class="badge ok">سالم</span><button class="icon-btn small" type="button" data-action="adjust" aria-label="اصلاح موجودی"><svg><use href="#i-more"></use></svg></button></div></article>
+          </div>
+          <div class="empty-state" id="inventoryEmpty"><svg><use href="#i-search"></use></svg><div>قلمی با این مشخصات پیدا نشد.</div><button class="text-btn" type="button" data-action="clear-inventory">پاک کردن فیلتر</button></div>
+        </section>
+
+        <!-- Products -->
+        <section class="page" id="page-products" data-page="products">
+          <div class="screen-heading"><div class="heading-copy"><span class="eyebrow">فروشگاه · کاتالوگ</span><h1>محصولات</h1><p>۱۴۲ محصول · ۴۸۶ قلم موجودی</p></div><button class="primary-btn heading-action" type="button" data-action="new-product"><svg><use href="#i-plus"></use></svg>محصول جدید</button></div>
+          <label class="search-field"><svg><use href="#i-search"></use></svg><input type="search" placeholder="نام محصول یا کد فنی…" data-product-search><button class="search-action" type="button" data-action="filter-products"><svg><use href="#i-filter"></use></svg></button></label>
+          <div class="category-scroll"><button class="category-pill active" type="button" data-category="all"><span class="category-icon"><svg><use href="#i-layers"></use></svg></span>همه <small>۱۴۲</small></button><button class="category-pill" type="button" data-category="brake"><span class="category-icon"><svg><use href="#part-brake"></use></svg></span>ترمز <small>۳۶</small></button><button class="category-pill" type="button" data-category="engine"><span class="category-icon"><svg><use href="#part-oil"></use></svg></span>موتور <small>۴۸</small></button><button class="category-pill" type="button" data-category="electric"><span class="category-icon"><svg><use href="#part-battery"></use></svg></span>برقی <small>۲۹</small></button><button class="category-pill" type="button" data-category="suspension"><span class="category-icon"><svg><use href="#part-shock"></use></svg></span>جلوبندی <small>۲۹</small></button></div>
+          <div class="section-row" style="margin-top:14px"><h2>محصولات پرفروش</h2><span class="card-meta" style="margin-inline-start:auto;color:var(--text-3);font-size:9px">مرتب‌سازی: جدیدترین</span></div>
+          <div class="product-list" id="productList">
+            <article class="product-card" data-category="brake" data-search="لنت ترمز جلو پژو ۲۰۶ BRK-00452 ایساکو"><span class="product-thumb"><svg class="part-icon"><use href="#part-brake"></use></svg></span><div class="product-copy"><h3>لنت ترمز جلو پژو ۲۰۶</h3><p>مناسب ۲۰۶ تیپ ۲ و ۵ · <span class="en">BRK-00452</span></p><div class="product-meta"><span class="badge ok"><svg><use href="#i-check"></use></svg>موجود</span><span class="badge blue">۲ برند</span></div></div><button class="product-action" type="button" data-action="product-menu" aria-label="گزینه‌های محصول"><svg><use href="#i-more"></use></svg></button></article>
+            <article class="product-card" data-category="engine" data-search="فیلتر روغن پراید و تیبا FLT-00203 بوش"><span class="product-thumb"><svg class="part-icon"><use href="#part-oil"></use></svg></span><div class="product-copy"><h3>فیلتر روغن پراید و تیبا</h3><p>پراید · تیبا · ساینا · <span class="en">FLT-00203</span></p><div class="product-meta"><span class="badge ok"><svg><use href="#i-check"></use></svg>موجود</span><span class="badge blue">۳ برند</span></div></div><button class="product-action" type="button" data-action="product-menu" aria-label="گزینه‌های محصول"><svg><use href="#i-more"></use></svg></button></article>
+            <article class="product-card" data-category="brake" data-search="فیلتر هوای پژو ۴۰۵ FLT-00118 سرکان"><span class="product-thumb"><svg class="part-icon"><use href="#part-filter"></use></svg></span><div class="product-copy"><h3>فیلتر هوای پژو ۴۰۵ و پارس</h3><p>۴۰۵ · پارس · سمند LX · <span class="en">FLT-00118</span></p><div class="product-meta"><span class="badge warn">موجود کم</span><span class="badge blue">۲ برند</span></div></div><button class="product-action" type="button" data-action="product-menu" aria-label="گزینه‌های محصول"><svg><use href="#i-more"></use></svg></button></article>
+            <article class="product-card" data-category="electric" data-search="باتری ۶۰ آمپر اتمی ELE-00640 صبا"><span class="product-thumb"><svg class="part-icon"><use href="#part-battery"></use></svg></span><div class="product-copy"><h3>باتری ۶۰ آمپر اتمی</h3><p>مناسب همهٔ خودروها · <span class="en">ELE-00640</span></p><div class="product-meta"><span class="badge warn">موجود کم</span><span class="badge blue">۲ برند</span></div></div><button class="product-action" type="button" data-action="product-menu" aria-label="گزینه‌های محصول"><svg><use href="#i-more"></use></svg></button></article>
+            <article class="product-card" data-category="suspension" data-search="کمک فنر عقب پژو پارس SUS-00290 کی بی ای"><span class="product-thumb"><svg class="part-icon"><use href="#part-shock"></use></svg></span><div class="product-copy"><h3>کمک فنر عقب پژو پارس</h3><p>پارس · ۴۰۵ · <span class="en">SUS-00290</span></p><div class="product-meta"><span class="badge danger">ناموجود</span></div></div><button class="product-action" type="button" data-action="product-menu" aria-label="گزینه‌های محصول"><svg><use href="#i-more"></use></svg></button></article>
+          </div>
+          <div class="empty-state" id="productEmpty"><svg><use href="#i-box"></use></svg><div>محصولی با این فیلتر پیدا نشد.</div><button class="text-btn" type="button" data-action="clear-products">پاک کردن فیلتر</button></div>
+        </section>
+
+        <!-- More -->
+        <section class="page" id="page-more" data-page="more">
+          <div class="screen-heading"><div class="heading-copy"><span class="eyebrow">مدیریت حساب و سیستم</span><h1>بیشتر</h1><p>تنظیمات، گزارش‌ها و دسترسی‌های پنل</p></div></div>
+          <button class="profile-card" type="button" data-open-sheet="profileSheet"><span class="avatar">مس</span><span class="profile-copy"><strong>مهدی سلیمانی</strong><span>مدیر کل · آخرین ورود امروز ۰۸:۴۷</span></span><svg class="profile-arrow"><use href="#i-arrow-left"></use></svg></button>
+          <div class="card menu-card">
+            <button class="menu-row" type="button" data-action="reports"><span class="menu-icon"><svg><use href="#i-chart"></use></svg></span><span class="menu-copy"><b>گزارش‌ها و تحلیل</b><span>فروش، سود و گردش موجودی</span></span><span class="row-end"><span class="badge blue">جدید</span><svg><use href="#i-arrow-left"></use></svg></span></button>
+            <button class="menu-row" type="button" data-action="customers"><span class="menu-icon"><svg><use href="#i-users"></use></svg></span><span class="menu-copy"><b>مشتریان</b><span>۲۸۶ مشتری فعال · ۴ بدهی‌دار</span></span><span class="row-end"><svg><use href="#i-arrow-left"></use></svg></span></button>
+            <button class="menu-row" type="button" data-action="suppliers"><span class="menu-icon"><svg><use href="#i-truck"></use></svg></span><span class="menu-copy"><b>تأمین‌کنندگان</b><span>۳۸ تأمین‌کنندهٔ ثبت‌شده</span></span><span class="row-end"><svg><use href="#i-arrow-left"></use></svg></span></button>
+            <button class="menu-row" type="button" data-action="settings"><span class="menu-icon"><svg><use href="#i-gear"></use></svg></span><span class="menu-copy"><b>تنظیمات فروشگاه</b><span>اطلاعات، پیامک و یکپارچه‌سازی</span></span><span class="row-end"><svg><use href="#i-arrow-left"></use></svg></span></button>
+          </div>
+          <div class="card menu-card">
+            <button class="menu-row" type="button" data-action="theme"><span class="menu-icon"><svg data-theme-icon><use href="#i-moon"></use></svg></span><span class="menu-copy"><b>پوستهٔ برنامه</b><span data-theme-text>حالت روشن</span></span><span class="row-end"><span class="theme-toggle"><i></i></span></span></button>
+            <button class="menu-row" type="button" data-action="backup"><span class="menu-icon"><svg><use href="#i-shield"></use></svg></span><span class="menu-copy"><b>پشتیبان‌گیری</b><span>آخرین نسخه امروز ساعت ۰۳:۰۰ · موفق</span></span><span class="row-end"><span class="badge ok">فعال</span></span></button>
+            <button class="menu-row" type="button" data-action="security"><span class="menu-icon"><svg><use href="#i-lock"></use></svg></span><span class="menu-copy"><b>امنیت و دسترسی</b><span>رمز عبور، نشست‌ها و نقش‌های کاربری</span></span><span class="row-end"><svg><use href="#i-arrow-left"></use></svg></span></button>
+          </div>
+          <div class="app-version">سلیم‌وند · نسخهٔ موبایل ۱.۰.۰ · همه‌چیز همگام است <span style="color:var(--ok)">●</span></div>
+        </section>
+      </main>
+
+      <button class="fab" type="button" data-open-sheet="invoiceSheet" aria-label="صدور فاکتور"><svg><use href="#i-plus"></use></svg><span class="fab-label">فاکتور جدید</span></button>
+      <nav class="bottom-nav" aria-label="ناوبری اصلی">
+        <button type="button" data-page-target="home" class="active"><svg><use href="#i-home"></use></svg><span>خانه</span></button>
+        <button type="button" data-page-target="sales"><svg><use href="#i-receipt"></use></svg><span>فروش</span></button>
+        <button type="button" data-page-target="inventory"><svg><use href="#i-layers"></use></svg><span>انبار</span></button>
+        <button type="button" data-page-target="products"><svg><use href="#i-box"></use></svg><span>محصولات</span></button>
+        <button type="button" data-page-target="more"><svg><use href="#i-more"></use></svg><span>بیشتر</span></button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Quick invoice sheet -->
+  <div class="overlay" id="invoiceSheet" hidden data-overlay>
+    <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="invoiceSheetTitle">
+      <div class="sheet-handle"></div>
+      <header class="sheet-header"><div><h2 id="invoiceSheetTitle">صدور فاکتور سریع</h2><p>ثبت فروش بدون ورود به پنل دسکتاپ</p></div><button class="icon-btn small sheet-close" type="button" data-close-sheet aria-label="بستن"><svg><use href="#i-close"></use></svg></button></header>
+      <div class="sheet-section"><span class="sheet-label">مشتری</span><button class="customer-select" type="button" data-action="choose-customer"><span class="customer-avatar">عم</span><span class="customer-copy"><b>علی محمدی</b><span>۰۹۱۲۳۴۵۶۷۸۹ · بدهی ۷۸,۷۰۰,۰۰۰ ریال</span></span><svg><use href="#i-chevron"></use></svg></button></div>
+      <div class="sheet-section"><span class="sheet-label">افزودن کالا</span><div class="scanner-input"><label class="search-field"><svg><use href="#i-barcode"></use></svg><input type="search" value="لنت ترمز" placeholder="نام کالا یا اسکن بارکد…"></label><button class="scan-button" type="button" data-action="camera"><svg><use href="#i-camera"></use></svg></button></div><div class="quick-product"><span class="item-icon"><svg class="part-icon"><use href="#part-brake"></use></svg></span><span class="quick-product-copy"><b>لنت ترمز جلو پژو ۲۰۶</b><span>ایساکو · موجودی ۵ · قفسهٔ A-03-2</span></span><span class="quantity"><button type="button" data-action="minus"><svg><use href="#i-minus"></use></svg></button><strong data-quantity>۲</strong><button type="button" data-action="plus"><svg><use href="#i-plus"></use></svg></button></span></div><div class="quick-product"><span class="item-icon"><svg class="part-icon"><use href="#part-oil"></use></svg></span><span class="quick-product-copy"><b>فیلتر روغن پراید و تیبا</b><span>بوش · موجودی ۲۴ · قفسهٔ B-11-3</span></span><span class="quantity"><button type="button" data-action="minus"><svg><use href="#i-minus"></use></svg></button><strong data-quantity>۱</strong><button type="button" data-action="plus"><svg><use href="#i-plus"></use></svg></button></span></div></div>
+      <div class="sheet-total"><span>جمع موقت فاکتور</span><strong>۴۱,۲۰۰,۰۰۰ <small style="font-size:9px;color:var(--text-3);font-weight:400">ریال</small></strong></div>
+      <div class="sheet-actions"><button class="outline-btn" type="button" data-close-sheet>ذخیره پیش‌نویس</button><button class="primary-btn" type="button" data-action="create-invoice"><svg><use href="#i-check"></use></svg>صدور و ارسال پیامک</button></div>
+    </section>
+  </div>
+
+  <!-- Notifications sheet -->
+  <div class="overlay" id="notificationSheet" hidden data-overlay>
+    <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="notificationSheetTitle">
+      <div class="sheet-handle"></div>
+      <header class="sheet-header"><div><h2 id="notificationSheetTitle">اعلان‌ها</h2><p>۳ اعلان جدید برای شما</p></div><button class="icon-btn small sheet-close" type="button" data-close-sheet aria-label="بستن"><svg><use href="#i-close"></use></svg></button></header>
+      <div class="notification-list"><div class="notification"><span class="notification-icon"><svg><use href="#i-alert"></use></svg></span><span class="notification-copy"><b>۷ قلم به زیر آستانه رسید</b><span>لنت ترمز ۲۰۶ و ۶ قلم دیگر برای سفارش آماده‌اند.</span><time>۱۰ دقیقه پیش</time></span></div><div class="notification"><span class="notification-icon" style="color:var(--ok);background:var(--ok-soft)"><svg><use href="#i-receipt"></use></svg></span><span class="notification-copy"><b>فاکتور ۱۴۰۵/۰۰۳۴۷ صادر شد</b><span>پیامک لینک فاکتور برای علی محمدی ارسال شد.</span><time>امروز، ۱۴:۲۲</time></span></div><div class="notification"><span class="notification-icon" style="color:var(--brand-600);background:var(--brand-50)"><svg><use href="#i-shield"></use></svg></span><span class="notification-copy"><b>پشتیبان‌گیری موفق بود</b><span>آخرین نسخهٔ اطلاعات روی فضای ابری ذخیره شد.</span><time>امروز، ۰۳:۰۰</time></span></div></div>
+      <button class="outline-btn block" style="margin-top:14px" type="button" data-action="mark-read">علامت‌گذاری همه به‌عنوان خوانده‌شده</button>
+    </section>
+  </div>
+
+  <!-- Profile sheet -->
+  <div class="overlay" id="profileSheet" hidden data-overlay>
+    <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="profileSheetTitle">
+      <div class="sheet-handle"></div>
+      <header class="sheet-header"><div><h2 id="profileSheetTitle">پروفایل کاربری</h2><p>مدیریت نشست فعلی</p></div><button class="icon-btn small sheet-close" type="button" data-close-sheet aria-label="بستن"><svg><use href="#i-close"></use></svg></button></header>
+      <div class="profile-card" style="margin-top:14px"><span class="avatar">مس</span><span class="profile-copy"><strong>مهدی سلیمانی</strong><span>مدیر کل · دسترسی کامل پنل</span></span></div>
+      <div class="card menu-card"><button class="menu-row" type="button" data-action="profile-settings"><span class="menu-icon"><svg><use href="#i-user"></use></svg></span><span class="menu-copy"><b>اطلاعات حساب</b><span>نام، شماره تماس و نقش کاربری</span></span><span class="row-end"><svg><use href="#i-arrow-left"></use></svg></span></button><button class="menu-row" type="button" data-action="security"><span class="menu-icon"><svg><use href="#i-lock"></use></svg></span><span class="menu-copy"><b>امنیت حساب</b><span>آخرین فعالیت و نشست‌ها</span></span><span class="row-end"><svg><use href="#i-arrow-left"></use></svg></span></button></div>
+      <button class="outline-btn block" style="margin-top:14px;color:var(--danger);border-color:var(--danger)" type="button" data-action="logout"><svg><use href="#i-arrow-left"></use></svg>خروج از حساب</button>
+    </section>
+  </div>
+
+  <!-- Search / barcode sheet -->
+  <div class="overlay" id="searchSheet" hidden data-overlay>
+    <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="searchSheetTitle">
+      <div class="sheet-handle"></div>
+      <header class="sheet-header"><div><h2 id="searchSheetTitle">جست‌وجوی سریع</h2><p>نام کالا، مشتری، فاکتور یا بارکد را وارد کنید</p></div><button class="icon-btn small sheet-close" type="button" data-close-sheet aria-label="بستن"><svg><use href="#i-close"></use></svg></button></header>
+      <div class="sheet-section"><label class="search-field"><svg><use href="#i-search"></use></svg><input type="search" autofocus placeholder="مثلاً BRK-00452…"><button class="search-action" type="button" data-action="camera"><svg><use href="#i-camera"></use></svg></button></label></div>
+      <div class="section-row" style="margin-top:17px"><h2>جست‌وجوهای اخیر</h2><button class="link" type="button" data-action="clear-recent">پاک کردن</button></div>
+      <div class="filter-row" style="flex-wrap:wrap;overflow:visible"><button class="filter-chip" type="button">لنت ترمز ۲۰۶</button><button class="filter-chip" type="button">علی محمدی</button><button class="filter-chip" type="button">۱۴۰۵/۰۰۳۴۷</button></div>
+      <div class="card menu-card"><button class="menu-row" type="button" data-page-target="inventory"><span class="menu-icon"><svg><use href="#i-archive"></use></svg></span><span class="menu-copy"><b>موجودی انبار</b><span>جست‌وجو در ۴۸۶ قلم</span></span><span class="row-end"><svg><use href="#i-arrow-left"></use></svg></span></button><button class="menu-row" type="button" data-page-target="sales"><span class="menu-icon"><svg><use href="#i-receipt"></use></svg></span><span class="menu-copy"><b>فاکتورها</b><span>جست‌وجو در ۱,۲۴۸ فاکتور</span></span><span class="row-end"><svg><use href="#i-arrow-left"></use></svg></span></button></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" hidden><svg><use href="#i-check"></use></svg><span id="toastText">انجام شد.</span><button type="button" data-action="close-toast" aria-label="بستن"><svg><use href="#i-close"></use></svg></button></div>
+  <script src="app.js"></script>
+</body>
+</html>
